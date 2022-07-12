@@ -1,11 +1,9 @@
-import React from "react";
-class Categories extends React.Component{
-    render(){
-        return(
-            <div>
-                <button>Check Status</button>
-            </div>
-        )
-    }
-}
-export default Categories
+import React from 'react';
+
+const Categories = () => (
+  <div>
+    <button type="button">Check Status</button>
+  </div>
+);
+
+export default Categories;
