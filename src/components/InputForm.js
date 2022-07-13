@@ -1,24 +1,38 @@
 import React, { useState } from 'react';
-// import { useDispatch } from 'react-redux/es/exports';
+import { useDispatch } from 'react-redux/es/exports';
 
-// import { v4 as uuidv4 } from 'uuid'
-// import { addBooks } from '../redux/books/book';
-//
+import { v4 as uuidv4 } from 'uuid';
+import { addBooks } from '../redux/books/book';
+
 const InputForm = () => {
-  // const dispatch = useDispatch();
-  const [state, setState] = useState({ title: '', author: '' });
-  const inputUpdate = (e) =>{
-    setState({ [e.target.name]: e.target.value
+  const dispatch = useDispatch();
+  const [stateTitle, setTitle] = useState('');
+  const [stateAuthor, setAuthor] = useState('');
+  const inputTitle = (e) => {
+    setTitle(e.target.value);
+    
+  };
+  const inputAuthor = (e) => {
+    setAuthor(e.target.value);
+   
+  };
+  const sendData = (e) => {
+    e.preventDefault();
 
-    })
-  }
+    dispatch(addBooks({
+      title: stateTitle,
+      author: stateAuthor,
+      id: uuidv4(),
+
+    }));
+  };
 
   return (
 
-    <form>
-      <input type="text" onChange={inputUpdate} name="title" value={state.title} placeholder="Enter NAme of Book" />
-      <input type="text" onChange={inputUpdate} name="author" value={state.author} placeholder="Enter Name of AUthor" />
-      <button type="button" >Add Book</button>
+    <form onSubmit={sendData}>
+      <input type="text" onChange={inputTitle} name="title" value={stateTitle} placeholder="Enter Book Title" />
+      <input type="text" onChange={inputAuthor} name="author" value={stateAuthor} placeholder="Enter Author" />
+      <button type="submit">Add Book</button>
 
     </form>
   );

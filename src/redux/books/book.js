@@ -1,12 +1,10 @@
 const ADD_BOOK = 'bookstore/books/ADD_BOOK';
 const REMOVE_BOOK = 'bookstore/books/REMOVE_BOOK';
 
-export function addBooks(title, author, id) {
+export function addBooks(payload) {
   return {
     type: ADD_BOOK,
-    title,
-    author,
-    id,
+    payload,
   };
 }
 export function removeBooks(id) {
@@ -44,11 +42,7 @@ export default function bookReducer(state = defaultState, action) {
   switch (action.type) {
     case ADD_BOOK:
       return [
-        ...state.books, {
-          id: action.id,
-          title: action.title,
-          author: action.author,
-        },
+        ...state, action.payload,
       ];
 
     case REMOVE_BOOK:
