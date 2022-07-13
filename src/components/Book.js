@@ -1,8 +1,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { useDispatch } from 'react-redux/es/exports';
+import { removeBooks } from '../redux/books/book';
 
 const Book = (props) => {
-  const { title, author } = props;
+  const { title, author, id } = props;
+  const dispatch = useDispatch();
+  const deleteBook = (e) => {
+    if (e.target.id === id) {
+      dispatch(removeBooks(id));
+    }
+  };
+
   return (
     <>
       <li>
@@ -15,7 +24,7 @@ const Book = (props) => {
           Author:
           {author}
         </h3>
-        <button type="button">Remove</button>
+        <button id={id} onClick={deleteBook} type="submit">Remove</button>
 
       </li>
     </>
@@ -25,6 +34,7 @@ const Book = (props) => {
 Book.propTypes = {
   title: PropTypes.string.isRequired,
   author: PropTypes.string.isRequired,
+  id: PropTypes.string.isRequired,
 
 };
 

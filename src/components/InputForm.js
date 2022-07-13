@@ -10,11 +10,9 @@ const InputForm = () => {
   const [stateAuthor, setAuthor] = useState('');
   const inputTitle = (e) => {
     setTitle(e.target.value);
-    
   };
   const inputAuthor = (e) => {
     setAuthor(e.target.value);
-   
   };
   const sendData = (e) => {
     e.preventDefault();

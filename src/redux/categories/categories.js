@@ -6,15 +6,11 @@ export function checkSatus(id) {
   };
 }
 
-const defaultState = {
-  categories: [],
-};
+const defaultState = [];
 
 export default function statusReducer(state = defaultState, action) {
   if (action.type === CHECKED_STATUS) {
-    return {
-      categories: 'Under construction',
-    };
+    return ['Under construction'];
   }
   return state;
 }

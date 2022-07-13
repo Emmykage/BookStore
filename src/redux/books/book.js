@@ -1,3 +1,5 @@
+import { v4 as uuidv4 } from 'uuid';
+
 const ADD_BOOK = 'bookstore/books/ADD_BOOK';
 const REMOVE_BOOK = 'bookstore/books/REMOVE_BOOK';
 
@@ -16,22 +18,22 @@ export function removeBooks(id) {
 
 const defaultState = [
   {
-    id: 1,
+    id: uuidv4(),
     title: 'Book One',
     author: 'Author one',
   },
   {
-    id: 2,
+    id: uuidv4(),
     title: 'Book Two',
     author: 'Author Two',
   },
   {
-    id: 3,
+    id: uuidv4(),
     title: 'Book Three',
     author: 'Author Three',
   },
   {
-    id: 4,
+    id: uuidv4(),
     title: 'Book Four',
     author: 'Author Five',
   },
@@ -47,7 +49,7 @@ export default function bookReducer(state = defaultState, action) {
 
     case REMOVE_BOOK:
       return [
-        ...state.books.filter((book) => book.id !== action.id)];
+        ...state.filter((book) => book.id !== action.id)];
 
     default:
       return state;
