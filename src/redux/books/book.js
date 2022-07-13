@@ -16,28 +16,44 @@ export function removeBooks(id) {
   };
 }
 
-const defaultState = {
-  books: [],
-};
+const defaultState = [
+  {
+    id: 1,
+    title: 'Book One',
+    author: 'Author one',
+  },
+  {
+    id: 2,
+    title: 'Book Two',
+    author: 'Author Two',
+  },
+  {
+    id: 3,
+    title: 'Book Three',
+    author: 'Author Three',
+  },
+  {
+    id: 4,
+    title: 'Book Four',
+    author: 'Author Five',
+  },
+
+];
 
 export default function bookReducer(state = defaultState, action) {
   switch (action.type) {
     case ADD_BOOK:
-      return {
-        books: [
-          ...state.books, {
-            id: action.id,
-            title: action.title,
-            author: action.author,
-          },
-        ],
-      };
+      return [
+        ...state.books, {
+          id: action.id,
+          title: action.title,
+          author: action.author,
+        },
+      ];
 
     case REMOVE_BOOK:
-      return {
-        books: [
-          ...state.books.filter((book) => book.id !== action.id)],
-      };
+      return [
+        ...state.books.filter((book) => book.id !== action.id)];
 
     default:
       return state;
