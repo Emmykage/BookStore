@@ -20,7 +20,7 @@ const InputForm = () => {
     dispatch(addBooks({
       title: stateTitle,
       author: stateAuthor,
-      id: uuidv4(),
+      item_id: uuidv4(),
 
     }));
   };
