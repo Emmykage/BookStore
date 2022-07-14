@@ -1,10 +1,15 @@
-import React from 'react';
-import { useSelector } from 'react-redux';
+import React, { useEffect } from 'react';
+import { shallowEqual, useDispatch, useSelector } from 'react-redux';
+import { serverBooks } from '../redux/books/book';
 import Book from './Book';
 import InputForm from './InputForm';
 
 function Books() {
-  const books = useSelector((state) => state.books);
+  const books = useSelector((state) => state.books, shallowEqual);
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(serverBooks());
+  }, []);
 
   return (
     <>
@@ -13,7 +18,7 @@ function Books() {
 
           {books.map((book) => (
 
-            <Book key={book.id} title={book.title} author={book.author} id={book.id} />
+            <Book key={book.item_id} title={book.title} author={book.author} id={book.item_id} />
 
           ))}
 
