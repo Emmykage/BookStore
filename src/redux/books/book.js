@@ -4,19 +4,6 @@ const ADD_BOOK = 'bookstore/books/ADD_BOOK';
 const REMOVE_BOOK = 'bookstore/books/REMOVE_BOOK';
 const GET_BOOK = 'bookstore/books/GET_BOOK';
 
-// export function addBooks(payload) {
-//   return {
-//     type: ADD_BOOK,
-//     payload,
-//   };
-// }
-// export function removeBooks(id) {
-//   return {
-//     type: REMOVE_BOOK,
-//     id,
-//   };
-// }
-
 const defaultState = [];
 
 export default function bookReducer(state = defaultState, action) {
@@ -28,7 +15,7 @@ export default function bookReducer(state = defaultState, action) {
 
     case REMOVE_BOOK:
       return [
-        ...state.filter((book) => book.id !== action.id)];
+        ...state.filter((book) => book.item_id !== action.id)];
     case GET_BOOK:
       return [...action.payload];
     default:
@@ -52,7 +39,7 @@ export const addBooks = (book) => async (dispatch) => {
   await fetch(baseUrl, {
     method: 'POST',
     headers: {
-      'content-type': 'application/json',
+      'content-Type': 'application/json',
     },
     body: JSON.stringify(book),
   });
@@ -68,6 +55,6 @@ export const removeBooks = (id) => async (dispatch) => {
   });
   dispatch({
     type: REMOVE_BOOK,
-    payload: id,
+    id,
   });
 };

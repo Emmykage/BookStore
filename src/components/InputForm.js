@@ -21,6 +21,7 @@ const InputForm = () => {
       title: stateTitle,
       author: stateAuthor,
       item_id: uuidv4(),
+      category: 'action',
 
     }));
     setAuthor('');
