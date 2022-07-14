@@ -23,6 +23,8 @@ const InputForm = () => {
       item_id: uuidv4(),
 
     }));
+    setAuthor('');
+    setTitle('')
   };
 
   return (

@@ -24,7 +24,7 @@ const Book = (props) => {
           Author:
           {author}
         </h3>
-        <button id={id} onClick={deleteBook} type="submit">Remove</button>
+        <button id={id} onClick={deleteBook} type="button">Remove</button>
 
       </li>
     </>
