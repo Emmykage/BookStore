@@ -1,7 +1,7 @@
 import { configureStore } from '@reduxjs/toolkit';
+import logger from 'redux-logger';
 import bookReducer from './books/book';
 import statusReducer from './categories/categories';
-import logger from 'redux-logger';
 
 const store = configureStore({
   reducer: {
