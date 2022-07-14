@@ -24,7 +24,7 @@ const InputForm = () => {
 
     }));
     setAuthor('');
-    setTitle('')
+    setTitle('');
   };
 
   return (
