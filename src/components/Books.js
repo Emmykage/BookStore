@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import './style.css';
 import { shallowEqual, useDispatch, useSelector } from 'react-redux';
 import { serverBooks } from '../redux/books/book';
 import Book from './Book';
@@ -13,20 +14,24 @@ function Books() {
 
   return (
     <>
-      <div className="bookList">
-        <ul>
+      <div className="mini-container">
+        <div className="bookList">
+          <ul>
 
-          {books.map((book) => (
+            {books.map((book) => (
 
-            <Book key={book.item_id} title={book.title} author={book.author} id={book.item_id} />
+              <Book key={book.item_id} title={book.title} author={book.author} id={book.item_id} />
 
-          ))}
+            ))}
 
-        </ul>
+          </ul>
+          <div className="form">
 
-      </div>
-      <div className="form">
-        <InputForm />
+            <InputForm />
+
+          </div>
+
+        </div>
 
       </div>
 

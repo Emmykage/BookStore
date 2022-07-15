@@ -29,13 +29,21 @@ const InputForm = () => {
   };
 
   return (
+    <div className="inputDiv">
+      <h2>ADD NEW BOOK</h2>
+      <form onSubmit={sendData}>
+        <div className="inputform">
+          <input type="text" onChange={inputTitle} name="title" value={stateTitle} placeholder="Enter Book Title" />
+          <input type="text" onChange={inputAuthor} name="author" value={stateAuthor} placeholder="Enter Author" />
 
-    <form onSubmit={sendData}>
-      <input type="text" onChange={inputTitle} name="title" value={stateTitle} placeholder="Enter Book Title" />
-      <input type="text" onChange={inputAuthor} name="author" value={stateAuthor} placeholder="Enter Author" />
-      <button type="submit">Add Book</button>
+        </div>
 
-    </form>
+        <button type="submit">Add Book</button>
+
+      </form>
+
+    </div>
+
   );
 };
 export default InputForm;

@@ -10,12 +10,14 @@ const Categories = () => {
     dispatch(checkSatus);
   };
   return (
-    <div>
-      <p>
+    <div className="mini-container">
+      <div>
+        <p>
 
-        {passStat[0]}
-      </p>
-      <button onClick={checkStat} type="button">Check Status</button>
+          {passStat[0]}
+        </p>
+        <button onClick={checkStat} type="button">Check Status</button>
+      </div>
     </div>
   );
 };
