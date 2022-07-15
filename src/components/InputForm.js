@@ -20,19 +20,30 @@ const InputForm = () => {
     dispatch(addBooks({
       title: stateTitle,
       author: stateAuthor,
-      id: uuidv4(),
+      item_id: uuidv4(),
+      category: 'action',
 
     }));
+    setAuthor('');
+    setTitle('');
   };
 
   return (
+    <div className="inputDiv">
+      <h2>ADD NEW BOOK</h2>
+      <form onSubmit={sendData}>
+        <div className="inputform">
+          <input type="text" onChange={inputTitle} name="title" value={stateTitle} placeholder="Enter Book Title" />
+          <input type="text" onChange={inputAuthor} name="author" value={stateAuthor} placeholder="Enter Author" />
 
-    <form onSubmit={sendData}>
-      <input type="text" onChange={inputTitle} name="title" value={stateTitle} placeholder="Enter Book Title" />
-      <input type="text" onChange={inputAuthor} name="author" value={stateAuthor} placeholder="Enter Author" />
-      <button type="submit">Add Book</button>
+        </div>
 
-    </form>
+        <button type="submit">Add Book</button>
+
+      </form>
+
+    </div>
+
   );
 };
 export default InputForm;

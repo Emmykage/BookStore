@@ -8,12 +8,16 @@ import Header from './components/header';
 function App() {
   return (
     <>
-      <Header />
-      <Routes>
-        <Route path="/" element={<Books />} />
-        <Route path="categories" element={<Categories />} />
 
-      </Routes>
+      <div className="container">
+        <Header />
+        <Routes>
+
+          <Route path="/" element={<Books />} />
+          <Route path="categories" element={<Categories />} />
+
+        </Routes>
+      </div>
 
     </>
   );
