@@ -130,11 +130,8 @@ form button {
   padding-left: 0;
 }
 
-
 .clearfix {
   height: 50%;
-
-
   display: flex;
   border-right: 2px solid rgb(188, 188, 188);
 }
